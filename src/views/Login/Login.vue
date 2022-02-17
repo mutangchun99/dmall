@@ -1,0 +1,63 @@
+<template>
+  <div class="login">
+    <el-form>
+      <el-form-item label="用户名:">
+        <el-input
+          type="text"
+          placeholder="请输入内容"
+          v-model="username"
+        ></el-input>
+      </el-form-item>
+      <el-form-item label="密码:">
+        <el-input
+          type="password"
+          placeholder="请输入内容"
+          v-model="pass"
+        ></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button @click="login">登录</el-button>
+      </el-form-item>
+      <el-form-item>
+        <el-link @click="forget">忘记密码?</el-link>
+      </el-form-item>
+    </el-form>
+  </div>
+</template>
+
+<script>
+export default {
+  props:[
+    'userid','username1'
+  ],
+  data() {
+    return {
+      username: "",
+      pass: "",
+    };
+  },
+  methods: {
+    login: function () {
+      this.$router.push('/homepage')
+      console.log(this.username + this.pass);
+      console.log(this.$router)
+      console.log(this.$route)
+    },
+    forget:function(){
+      this.$router.push('/forget')
+    }
+  },
+};
+</script>
+
+<style >
+.login {
+  display: block;
+  width: 300px;
+  border: 1px solid bisque;
+  position: absolute;
+  right: 20%;
+  top: 30%;
+  padding: 15px;
+}
+</style>
