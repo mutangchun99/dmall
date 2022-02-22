@@ -3,16 +3,16 @@
     <el-form>
       <el-form-item label="用户名:">
         <el-input
-          type="text"
-          placeholder="请输入内容"
-          v-model="username"
+            type="text"
+            placeholder="请输入内容"
+            v-model="username"
         ></el-input>
       </el-form-item>
       <el-form-item label="密码:">
         <el-input
-          type="password"
-          placeholder="请输入内容"
-          v-model="pass"
+            type="password"
+            placeholder="请输入内容"
+            v-model="pass"
         ></el-input>
       </el-form-item>
       <el-form-item>
@@ -27,8 +27,8 @@
 
 <script>
 export default {
-  props:[
-    'userid','username1'
+  props: [
+    'userid', 'username1'
   ],
   data() {
     return {
@@ -42,15 +42,22 @@ export default {
       console.log(this.username + this.pass);
       console.log(this.$router)
       console.log(this.$route)
+      this.axios.get('http://127.0.0.1:8080/login')
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     },
-    forget:function(){
+    forget: function () {
       this.$router.push('/forget')
     }
   },
 };
 </script>
 
-<style >
+<style>
 .login {
   display: block;
   width: 300px;

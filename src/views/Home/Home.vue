@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <el-container style="height: 100%">
-      <el-aside width="450px" style="margin: 10px">
+    <el-container style="height: 100vh; border: 1px solid #eee">
+      <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <Aside />
       </el-aside>
       <el-container>
-        <el-header style="height: 20%"><Header /></el-header>
-        <el-main style="height: 60%"><Main /></el-main>
-        <el-footer style="height: 20%"><Footer /></el-footer>
+        <el-header><Header /></el-header>
+        <el-main><router-view /></el-main>
+        <el-footer><Footer /></el-footer>
       </el-container>
     </el-container>
   </div>
@@ -16,21 +16,17 @@
 <script>
 import Aside from "@/components/Aside/Aside.vue";
 import Header from "@/components/Header/Header.vue";
-import Footer from "@/components/Footer/Footer.vue";
-import Main from "@/components/Main/Main.vue";
 export default {
   components: {
     Aside,
     Header,
-    Footer,
-    Main,
   },
 };
 </script>
 
-<style>
-.home {
+<style scoped>
+/* .home {
   height: 100%;
   width: 100%;
-}
+} */
 </style>

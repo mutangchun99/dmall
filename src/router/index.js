@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login/Login.vue'
 import Forget from '@/views/Forget/Forget.vue'
 import Home from '@/views/Home/Home.vue'
+import CreateProject from '@/views/Home/CreateProject.vue'
+import ProjectList from '@/views/Home/ProjectList.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,10 +20,20 @@ const routes = [
     component: Forget
   },
   {
-    path:'/homepage',
-    name:'Home',
-    component:Home
-  }
+    path: '/homepage',
+    name: 'Home',
+    component: Home,
+    children: [
+      {
+        path: 'createproject',
+        component: CreateProject
+      },
+      {
+        path:'projectlist',
+        component:ProjectList
+      }
+    ]
+  },
 ]
 
 const router = new VueRouter({
