@@ -12,7 +12,7 @@
         <el-input
             type="password"
             placeholder="请输入内容"
-            v-model="pass"
+            v-model="password"
         ></el-input>
       </el-form-item>
       <el-form-item>
@@ -27,22 +27,16 @@
 
 <script>
 export default {
-  props: [
-    'userid', 'username1'
-  ],
   data() {
     return {
       username: "",
-      pass: "",
+      password: "",
     };
   },
   methods: {
     login: function () {
       this.$router.push('/homepage')
-      console.log(this.username + this.pass);
-      console.log(this.$router)
-      console.log(this.$route)
-      this.axios.get('http://127.0.0.1:8080/login')
+      this.axios.get('http://127.0.0.1:8080/login', {params: {username: this.username, password: this.password}})
           .then(function (response) {
             console.log(response);
           })
